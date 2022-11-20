@@ -1,0 +1,10 @@
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: "Read the host file"
+    shell: cat /etc/hosts
+    register: hosts
+
+  - name: "Print the hostnames"
+    debug:
+      msg: "{{ hosts.stdout_lines }}"
